@@ -7,6 +7,7 @@
 #app {
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 header {
@@ -17,6 +18,12 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -28,22 +35,24 @@ header {
 }
 
 main {
-  background-color: grey;
+  background-color: #293542;
   width: 100%;
+  position: absolute;
+  top: 100px;
   height: calc(100% - 100px);
   padding: 20px;
   display: flex;
   align-items: center;
-  overflow-y: auto;
 }
 
 .row-poster {
-  height: 80%;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  overflow-y: auto;
 }
 
 .poster {
