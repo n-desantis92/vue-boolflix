@@ -13,7 +13,7 @@
   <div id="app" class="container">
     <header>
       <div class="logo">
-        Boolflix
+        <img src="img/boolflix.png" alt="logo">
       </div>
       <div class="ricerca">
         <input type="text" @keyup.13="search" v-model="titoloFilm">
@@ -26,9 +26,9 @@
           <img :src="'https://image.tmdb.org/t/p/w400' + film.poster_path" alt="poster">
           <ul>
             <li>Titolo: {{film.title}}</li>
-            <li>Titolo originale:</li>
-            <li>Voto:</li>
-            <li>Overview:</li>
+            <li>Titolo originale: {{film.original_title}}</li>
+            <li>Voto: {{film.vote_average}}</li>
+            <li>Overview: {{film.overview}}</li>
           </ul>
         </div>
       </div>

@@ -20,8 +20,11 @@ header {
 }
 
 .logo {
-  color: red;
-  font-size: 45px;
+  width: 200px;
+}
+
+.logo img {
+  width: 100%;
 }
 
 main {
@@ -49,11 +52,13 @@ main {
   margin: 10px 10px;
   overflow: hidden;
   color: #fff;
-
+  position: relative;
 }
 
 .poster img {
   width: 100%;
+  position: absolute;
+  object-fit: cover;
 }
 
 .poster:hover img {
@@ -69,4 +74,8 @@ main {
 
 .poster ul li {
   margin-top: 5px;
+}
+.poster ul li:last-child {
+  overflow-y: auto;
+  height: 150px;
 }
