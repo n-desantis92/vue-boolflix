@@ -16,16 +16,16 @@
         Boolflix
       </div>
       <div class="ricerca">
-        <input type="text" v-model="titoloFilm">
+        <input type="text" @keyup.13="search" v-model="titoloFilm">
         <button @click="search">cerca</button>
       </div>
     </header>
     <main >
       <div class="row-poster">
         <div class="poster" v-for="film in listaFilms">
-          <img src="https://image.tmdb.org/t/p/w400/1J1e8Uslw8MAE7mIVFh6TU9mPt8.jpg" alt="">
+          <img :src="'https://image.tmdb.org/t/p/w400' + film.poster_path" alt="poster">
           <ul>
-            <li>Titolo:</li>
+            <li>Titolo: {{film.title}}</li>
             <li>Titolo originale:</li>
             <li>Voto:</li>
             <li>Overview:</li>

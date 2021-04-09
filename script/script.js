@@ -18,6 +18,7 @@ var app = new Vue ({
           this.listaFilms = response.data.results
       })
       this.titoloFilm = ""
+
     }
   }
 })
