@@ -76,6 +76,17 @@ main {
   display: none;
 }
 
+.poster li img {
+  width: 16px;
+  z-index: 1;
+  margin-left: 5px;
+}
+
+.poster:hover li img {
+  display: inline;
+
+}
+
 .poster ul {
   width: 100%;
   height: 100%;

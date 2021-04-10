@@ -16,6 +16,7 @@ var app = new Vue ({
       })
       .then((response) => {
           this.listaFilms = response.data.results;
+          console.log(this.listaFilms);
 
           this.listaFilms.forEach((item, i) => {
             this.listaFilms[i].vote_average = Math.ceil(item.vote_average / 2);
