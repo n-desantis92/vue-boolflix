@@ -3,7 +3,6 @@ var app = new Vue ({
   data: {
     titoloFilm: "futuro",
     listaFilms: [],
-    punteggio: [1,2,3,4,5],
   },
   methods: {
     search: function () {
@@ -15,20 +14,25 @@ var app = new Vue ({
           }
       })
       .then((response) => {
+          // vado a prendere i dati generali che mi servono e li inserisco in un'oggetto
           this.listaFilms = response.data.results;
+          // vado a prendere i dati generali che mi servono e li inserisco in un'oggetto
           console.log(this.listaFilms);
-
+          // trasformo il voto da 1 a 10 ad 1 a 5
           this.listaFilms.forEach((item, i) => {
             this.listaFilms[i].vote_average = Math.ceil(item.vote_average / 2);
           });
+          // /trasformo il voto da 1 a 10 ad 1 a 5
 
-      })
+      });
+
+      // porto il valore di ricerca a vuoto
       this.titoloFilm = "";
+      // /porto il valore di ricerca a vuoto
+      
     },
 
-    function () {
-      console.log(titoloFilm.vote_average);
-    }
+
 
   }
 })
