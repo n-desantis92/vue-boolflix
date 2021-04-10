@@ -62,12 +62,14 @@ main {
   overflow: hidden;
   color: #fff;
   position: relative;
+  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.5);
 }
 
 .poster img {
   width: 100%;
   position: absolute;
   object-fit: cover;
+  z-index: 5;
 }
 
 .poster:hover img {
@@ -85,6 +87,9 @@ main {
   margin-top: 5px;
 }
 .poster ul li:last-child {
-  overflow-y: auto;
-  height: 150px;
+  overflow: hidden;
+}
+
+.poster ul li:nth-child(3) span:last-of-type {
+  margin-left: -2px;
 }

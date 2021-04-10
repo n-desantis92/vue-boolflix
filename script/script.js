@@ -1,8 +1,9 @@
 var app = new Vue ({
   el: "#app",
   data: {
-    titoloFilm: "",
+    titoloFilm: "futuro",
     listaFilms: [],
+    punteggio: [1,2,3,4,5],
   },
   methods: {
     search: function () {
@@ -14,11 +15,19 @@ var app = new Vue ({
           }
       })
       .then((response) => {
-          console.log(response.data.results);
-          this.listaFilms = response.data.results
-      })
-      this.titoloFilm = ""
+          this.listaFilms = response.data.results;
 
+          this.listaFilms.forEach((item, i) => {
+            this.listaFilms[i].vote_average = Math.ceil(item.vote_average / 2);
+          });
+
+      })
+      this.titoloFilm = "";
+    },
+
+    function () {
+      console.log(titoloFilm.vote_average);
     }
+
   }
 })

@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css">
   <title>Boolflix</title>
 </head>
@@ -22,13 +23,16 @@
     </header>
     <main >
       <div class="row-poster">
-        <div class="poster" v-for="film in listaFilms">
+        <div class="poster" v-for="(film,index) in listaFilms">
           <img :src="'https://image.tmdb.org/t/p/w400' + film.poster_path" alt="poster">
           <ul>
-            <li>Titolo: {{film.title}}</li>
-            <li>Titolo originale: {{film.original_title}}</li>
-            <li>Voto: {{film.vote_average}}</li>
-            <li>Overview: {{film.overview}}</li>
+            <li><strong>Titolo:</strong> {{film.title}}</li>
+            <li><strong>Titolo originale:</strong> {{film.original_title}}</li>
+            <li><strong>Voto:</strong>
+                <span><i class="fas fa-star" v-for="index in film.vote_average"></i></span>
+                <span><i class="far fa-star" v-for="index in (5 - film.vote_average)"></i></span>
+            </li>
+            <li><strong>Overview:</strong> {{film.overview}}</li>
           </ul>
         </div>
       </div>
