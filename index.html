@@ -34,8 +34,8 @@
           <!-- /locandina -->
           <!-- dettagli-film -->
           <ul>
-            <li><strong>Titolo:</strong> {{film.title}}</li>
-            <li><strong>Titolo originale:</strong> {{film.original_title}}</li>
+            <li><strong>Titolo:</strong> {{film.title}} {{film.original_name}}</li>
+            <li><strong>Titolo originale:</strong> {{film.original_title}} {{film.original_name}}</li>
             <li><strong>Lingua originale:</strong> <img :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"></li>
             <li><strong>Voto:</strong>
                 <span><i class="fas fa-star" v-for="index in film.vote_average"></i></span>
