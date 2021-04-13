@@ -25,11 +25,18 @@
     </header>
     <!-- /header -->
     <main >
+      <aside class="container-filtri">
+        <div class="filtri">
+          <select class="lingue" v-model="filtraL">
+            <option v-for="(lingua,l) in flags" :value="lingua">{{lingua}}</option>
+          </select>
+        </div>
+      </aside>
       <!-- contenitore-films -->
       <div class="row-poster" >
         <!-- corpo-film -->
         <!-- <div v-if="film.poster_path != null"  class="poster" v-for="(film,index) in listaFilms" :style="{ 'background-image': 'url(https://image.tmdb.org/t/p/w400' + film.poster_path + ')' }"> -->
-        <div v-if="film.poster_path != null"  class="poster" v-for="film in listaFilms" :style="{'background-image': `url(https://image.tmdb.org/t/p/w400${film.poster_path})`}">
+        <div v-if="film.original_language == filtraL || filtraL == 'All'" v-show="film.poster_path != null"  class="poster" v-for="film in listaFilms" :style="{'background-image': `url(https://image.tmdb.org/t/p/w400${film.poster_path})`}">
           <!-- dettagli-film -->
           <ul>
             <li><strong>Titolo:</strong> {{film.title}} {{film.name}}</li>

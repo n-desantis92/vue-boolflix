@@ -47,6 +47,7 @@ main {
   padding: 0px 20px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .row-poster {
@@ -131,4 +132,44 @@ button {
 
 button i {
   margin: 5px;
+}
+
+aside.container-filtri {
+  background-color: inherit;
+  height: 100%;
+  width: 200px;
+  padding: 0px 5px 0px 0px;
+  position: absolute;
+  left: -195px;
+  z-index: 4;
+  transition: all 0.5s linear;
+}
+
+aside.container-filtri:hover {
+  transform: translateX(195px);
+}
+
+
+.filtri {
+  height: 100%;
+  padding: 20px;
+  background-color: black;
+  box-shadow: 1px 1px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+select {
+  outline: none;
+  height: 30px;
+  width: 50px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  text-align: center;
+  padding: 5px;
+}
+
+select option {
+  background-size: cover;
+  width: 30px;
 }

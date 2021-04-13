@@ -6,7 +6,8 @@ var app = new Vue ({
     lingua: "it-IT",
     titoloFilm: "",
     listaFilms: [],
-    flags: ["it","en","es","ja","pt",],
+    filtraL: "All",
+    flags: ["All","it","en","es","ja","pt",],
   },
   methods: {
     search() {
