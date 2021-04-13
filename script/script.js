@@ -3,6 +3,7 @@ var app = new Vue ({
   data: {
     url: "https://api.themoviedb.org/3/search/",
     key: "b04973b27729a64bccaff42ef0c92870",
+    lingua: "it-IT",
     titoloFilm: "",
     listaFilms: [],
   },
@@ -15,7 +16,7 @@ var app = new Vue ({
           params: {
             api_key: this.key,
             query: serchquery,
-            language: "it-IT",
+            language: this.lingua,
           }
       })
       .then((response) => {
@@ -26,7 +27,7 @@ var app = new Vue ({
           params: {
             api_key: this.key,
             query: serchquery,
-            language: "it-IT",
+            language: this.lingua,
           }
         })
         .then((response) => {

@@ -36,8 +36,8 @@
             <li><strong>Titolo originale:</strong> {{film.original_title}} {{film.original_name}}</li>
             <li><strong>Lingua originale:</strong> <img :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"></li>
             <li><strong>Voto:</strong>
-                <span><i class="fas fa-star" v-for="(element,index) in film.vote_average"></i></span>
-                <span><i class="far fa-star" v-for="(element,index) in (5 - film.vote_average)"></i></span>
+                <span><i class="fas fa-star" v-for="index in film.vote_average"></i></span>
+                <span><i class="far fa-star" v-for="index in (5 - film.vote_average)"></i></span>
             </li>
             <li><strong>Overview:</strong> {{film.overview}}</li>
           </ul>
