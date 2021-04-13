@@ -19,8 +19,8 @@
         <img src="img/boolflix.png" alt="logo">
       </div>
       <div class="ricerca">
-        <input type="text" @keyup.13="search" v-model="titoloFilm">
-        <button @click="search">cerca</button>
+        <input type="text" @keyup.13="search" v-model="titoloFilm" placeholder=" Cerca...">
+        <button @click="search"><i class="fas fa-search"></i></button>
       </div>
     </header>
     <!-- /header -->
@@ -30,10 +30,6 @@
         <!-- corpo-film -->
         <!-- <div v-if="film.poster_path != null"  class="poster" v-for="(film,index) in listaFilms" :style="{ 'background-image': 'url(https://image.tmdb.org/t/p/w400' + film.poster_path + ')' }"> -->
         <div v-if="film.poster_path != null"  class="poster" v-for="(film,index) in listaFilms" :style="{'background-image': `url(https://image.tmdb.org/t/p/w400${film.poster_path})`}">
-
-          <!-- locandina -->
-          <!-- <img :src="'https://image.tmdb.org/t/p/w400' + film.poster_path"> -->
-          <!-- /locandina -->
           <!-- dettagli-film -->
           <ul>
             <li><strong>Titolo:</strong> {{film.title}} {{film.name}}</li>

@@ -44,7 +44,7 @@ main {
   position: absolute;
   top: 100px;
   height: calc(100% - 100px);
-  padding: 20px;
+  padding: 0px 20px;
   display: flex;
   align-items: center;
 }
@@ -62,7 +62,7 @@ main {
 .poster {
   height: 300px;
   width: 200px;
-  margin: 10px 10px;
+  margin: 0px;
   overflow: hidden;
   color: #fff;
   position: relative;
@@ -113,4 +113,24 @@ main {
 
 .poster:hover ul {
   display: block;
+}
+
+input {
+  height: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding-left: 10px;
+}
+
+button {
+  height: 30px;
+  background-color: red;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  margin-left: -5px;
+  outline: none;
+}
+
+button i {
+  margin: 5px;
 }
