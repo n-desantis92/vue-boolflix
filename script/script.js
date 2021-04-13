@@ -6,6 +6,7 @@ var app = new Vue ({
     lingua: "it-IT",
     titoloFilm: "",
     listaFilms: [],
+    flags: ["it","en","es","ja","pt",],
   },
   methods: {
     search() {
@@ -21,7 +22,7 @@ var app = new Vue ({
       })
       .then((response) => {
 
-        this.listaFilms = response.data.results;
+        let listafilms = response.data.results;
 
         axios.get(this.url + 'tv', {
           params: {
@@ -31,23 +32,17 @@ var app = new Vue ({
           }
         })
         .then((response) => {
-          this.listaFilms = [...this.listaFilms,...response.data.results];
+          this.listaFilms = [...listafilms,...response.data.results];
           console.log(this.listaFilms);
 
           this.listaFilms.forEach((item, i) => {
-            item.vote_average = Math.ceil(item.vote_average / 2).toFixed();
+            item.vote_average =  Number(Math.ceil(item.vote_average / 2).toFixed());
             console.log(item.vote_average);
           });
 
         });
-
-
       });
-
-
     },
-
-
 
   }
 })

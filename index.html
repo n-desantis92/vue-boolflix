@@ -29,15 +29,15 @@
       <div class="row-poster" >
         <!-- corpo-film -->
         <!-- <div v-if="film.poster_path != null"  class="poster" v-for="(film,index) in listaFilms" :style="{ 'background-image': 'url(https://image.tmdb.org/t/p/w400' + film.poster_path + ')' }"> -->
-        <div v-if="film.poster_path != null"  class="poster" v-for="(film,index) in listaFilms" :style="{'background-image': `url(https://image.tmdb.org/t/p/w400${film.poster_path})`}">
+        <div v-if="film.poster_path != null"  class="poster" v-for="film in listaFilms" :style="{'background-image': `url(https://image.tmdb.org/t/p/w400${film.poster_path})`}">
           <!-- dettagli-film -->
           <ul>
             <li><strong>Titolo:</strong> {{film.title}} {{film.name}}</li>
             <li><strong>Titolo originale:</strong> {{film.original_title}} {{film.original_name}}</li>
-            <li><strong>Lingua originale:</strong> <img :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"></li>
+            <li><strong>Lingua originale:</strong> <img v-if="flags.includes(film.original_language)" :src="'img/' + film.original_language + '.png'"></li>
             <li><strong>Voto:</strong>
-                <span><i class="fas fa-star" v-for="index in film.vote_average"></i></span>
-                <span><i class="far fa-star" v-for="index in (5 - film.vote_average)"></i></span>
+                <span><i class="fas fa-star" v-for="(el,index) in film.vote_average"></i></span>
+                <span><i class="far fa-star" v-for="(el,index) in (5 - film.vote_average)"></i></span>
             </li>
             <li><strong>Overview:</strong> {{film.overview}}</li>
           </ul>
