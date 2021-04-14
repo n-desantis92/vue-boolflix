@@ -4,9 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- cdn axios -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+  <!-- /cdn axios -->
+  <!-- cdn vue js -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- /cdn vue js -->
+  <!-- cdn fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <!-- /cdn font-awesome -->
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- /google font -->
 
   <link rel="stylesheet" href="css/style.css">
   <title>Boolflix</title>
@@ -21,17 +31,25 @@
       <div class="ricerca">
         <input type="text" @keyup.13="search" v-model="titoloFilm" placeholder=" Cerca...">
         <button @click="search"><i class="fas fa-search"></i></button>
+        <select class="cambiolingua">
+          <option :value="lingua"></option>
+        </select>
       </div>
     </header>
     <!-- /header -->
     <main >
       <aside class="container-filtri">
-        <div class="filtri">
-          <select class="lingue" v-model="filtraL">
+        <div class="filtri"><span>Lingue</span>
+          <select class="lingue" v-model="filtral">
             <option v-for="(lingua,l) in flags" :value="lingua">{{lingua}}</option>
           </select>
         </div>
       </aside>
+      <div class="pagine">
+        <ul>
+          <li @click="changePage(n)" v-for="(page,n) in 10"><button>{{page}}</button></li>
+        </ul>
+      </div>
       <!-- contenitore-films -->
       <div class="row-poster" >
         <!-- corpo-film -->

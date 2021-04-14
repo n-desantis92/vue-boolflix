@@ -1,3 +1,5 @@
+
+
 var app = new Vue ({
   el: "#app",
   data: {
@@ -6,19 +8,25 @@ var app = new Vue ({
     lingua: "it-IT",
     titoloFilm: "",
     listaFilms: [],
-    filtraL: "All",
+    filtral: "All",
     flags: ["All","it","en","es","ja","pt",],
+    attori: [],
+    generi: [],
+    pagina: 1,
   },
+
   methods: {
     search() {
       let serchquery = this.titoloFilm;
       this.titoloFilm = "";
+      console.log(this.selfTitle);
 
       axios.get(this.url + 'movie', {
           params: {
             api_key: this.key,
             query: serchquery,
             language: this.lingua,
+            page: this.pagina,
           }
       })
       .then((response) => {
@@ -30,20 +38,26 @@ var app = new Vue ({
             api_key: this.key,
             query: serchquery,
             language: this.lingua,
+            page: this.pagina,
           }
         })
         .then((response) => {
           this.listaFilms = [...listafilms,...response.data.results];
-          console.log(this.listaFilms);
 
           this.listaFilms.forEach((item, i) => {
             item.vote_average =  Number(Math.ceil(item.vote_average / 2).toFixed());
-            console.log(item.vote_average);
           });
 
+          console.log(this.listaFilms.genres);
+
+          // this.generi.push()
         });
       });
     },
 
+    changePage(i) {
+      this.pagina = (i + 1);
+      console.log(this.pagina);
+    }
   }
 })
