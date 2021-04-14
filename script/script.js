@@ -18,7 +18,7 @@ var app = new Vue ({
   methods: {
     search() {
       let serchquery = this.titoloFilm;
-      this.titoloFilm = "";
+      // this.titoloFilm = "";
 
       axios.get(this.url + 'movie', {
           params: {
@@ -45,6 +45,7 @@ var app = new Vue ({
 
           this.listaFilms.forEach((item, i) => {
             item.vote_average =  Number(Math.ceil(item.vote_average / 2).toFixed());
+            console.log(item);
           });
 
         });
@@ -53,6 +54,7 @@ var app = new Vue ({
 
     changePage(i) {
       this.pagina = (i + 1);
+      this.search();
       console.log(this.pagina);
     }
   }
