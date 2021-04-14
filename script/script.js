@@ -19,7 +19,6 @@ var app = new Vue ({
     search() {
       let serchquery = this.titoloFilm;
       this.titoloFilm = "";
-      console.log(this.selfTitle);
 
       axios.get(this.url + 'movie', {
           params: {
@@ -48,9 +47,6 @@ var app = new Vue ({
             item.vote_average =  Number(Math.ceil(item.vote_average / 2).toFixed());
           });
 
-          console.log(this.listaFilms.genres);
-
-          // this.generi.push()
         });
       });
     },
